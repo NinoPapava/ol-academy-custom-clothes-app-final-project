@@ -1,0 +1,34 @@
+{
+  "clothes": [
+    {
+      "type": "T-shirt"
+    },
+    {
+      "type": "Jeans"
+    },
+    {
+      "type": "Dress"
+    },
+    {
+      "type": "Sweater"
+    },
+    {
+      "type": "Skirt"
+    },
+    {
+      "type": "Shorts"
+    },
+    {
+      "type": "Jacket"
+    },
+    {
+      "type": "Hoodie"
+    },
+    {
+      "type": "Blouse"
+    },
+    {
+      "type": "Suit"
+    }
+  ]
+}
