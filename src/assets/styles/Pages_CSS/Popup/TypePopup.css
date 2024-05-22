@@ -1,0 +1,83 @@
+.submit-form {
+  width: 100%;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.size-button,
+.color-button,
+.arm-button {
+  padding: 10px 20px;
+  border: 2px solid transparent;
+  border-radius: 35px;
+  font-size: 16px;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.selected {
+  border-color: #689b81;
+  background-color: #97cfa0;
+}
+
+.validation-message {
+  color: red;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+.btn {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-success {
+  background-color: #65ca7c;
+  color: #fff;
+}
+
+.btn-success:hover {
+  background-color: #49a55d;
+}
+
+.btn-secondary {
+  background-color: #6c757d;
+  color: #fff;
+}
+
+.btn-success, 
+.btn-secondary {
+  margin: 5px;
+}
+
+.btn-secondary:hover {
+  background-color: #5a6268;
+}
