@@ -3,7 +3,6 @@ import { Header } from '../Navbar/Header'
 import { DataService } from '../../services/Data/DataService';
 import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 import '../../assets/styles/Pages_CSS/History.css';
-import { Delete } from '../HistoryMoreComponents/Delete'
 import { Edit } from '../HistoryMoreComponents/Edit'
 import { Popup } from '../Popup/Popup';
 
@@ -13,7 +12,6 @@ const History = () => {
   const [isClicked, setIsClicked] = useState(false);
   const [isContextMenuPosition, setIsContextMenuPosition] = useState({ x: 0, y: 0 });
   const [isShowUpdate, setIsShowUpdate] = useState(false);
-  const [isShowDeleteConfirm, setIsShowDeleteConfirm] = useState(false);
   const [isPopup, setIsPopup] = useState(false);
   const isContextRef = useRef(null);
 
@@ -70,7 +68,7 @@ const History = () => {
   };
 
   const cancelDelete = () => {
-    setIsShowDeleteConfirm(false);
+    isPopup(false);
   };
 
   useEffect(() => {
@@ -124,9 +122,6 @@ const History = () => {
           <div className="context-menu-option" onClick={handleUpdate}>Update</div>
           <div className="context-menu-option" onClick={handleDelete}>Delete</div>
         </div>
-      )}
-      {isShowDeleteConfirm && (
-        <Delete onConfirm={() => confirmDelete(isCurrentIndex)} onCancel={cancelDelete} />
       )}
       {isShowUpdate && isClothes[isCurrentIndex] && (
         <Edit item={isClothes[isCurrentIndex]} onClose={() => setIsShowUpdate(false)} />
