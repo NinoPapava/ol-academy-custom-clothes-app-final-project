@@ -3,7 +3,7 @@ import { Header } from '../Navbar/Header'
 import { DataService } from '../../services/Data/DataService';
 import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 import '../../assets/styles/Pages_CSS/History.css';
-import { Edit } from '../HistoryMoreComponents/Edit'
+import { Edit } from '../Edit/Edit'
 import { Popup } from '../Popup/Popup';
 
 const History = () => {
@@ -65,10 +65,6 @@ const History = () => {
           console.error("Error deleting item:", error);
         });
     }
-  };
-
-  const cancelDelete = () => {
-    isPopup(false);
   };
 
   useEffect(() => {
