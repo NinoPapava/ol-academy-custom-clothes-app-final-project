@@ -1,10 +1,9 @@
 import React from 'react'
 import { Header } from '../Navbar/Header'
-import { Footer } from '../Navbar/Footer'
-import { Link } from'react-router-dom/cjs/react-router-dom.min'
+import { Link } from 'react-router-dom/cjs/react-router-dom.min'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import '../../../assets/styles/Pages_CSS/Home.css'
-import gif from '../../../assets/images/comp.gif'
+import '../../assets/styles/Pages_CSS/Home.css'
+import gif from '../../assets/images/comp.gif'
 
 const Home = () => {
   return (
@@ -18,7 +17,6 @@ const Home = () => {
         <p>Already have a design in mind? View your past orders and reorder your favorite creations.</p>
         <Link to="/history" ><button>See Orders</button></Link>
       </div>
-      <Footer />
     </div>
   )
 }

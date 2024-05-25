@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Header } from '../../Home/Navbar/Header'
-import { Footer } from '../../Home/Navbar/Footer'
-import { DataService } from '../../../services/Data/DataService';
+import { Header } from '../Navbar/Header'
+import { DataService } from '../../services/Data/DataService';
 import { Link } from 'react-router-dom/cjs/react-router-dom.min';
-import '../../../assets/styles/Pages_CSS/History.css';
+import '../../assets/styles/Pages_CSS/History.css';
 import { Delete } from '../HistoryMoreComponents/Delete'
 import { Edit } from '../HistoryMoreComponents/Edit'
+import { Popup } from '../Popup/Popup';
 
 const History = () => {
   const [isClothes, setIsClothes] = useState([]);
@@ -14,6 +14,7 @@ const History = () => {
   const [isContextMenuPosition, setIsContextMenuPosition] = useState({ x: 0, y: 0 });
   const [isShowUpdate, setIsShowUpdate] = useState(false);
   const [isShowDeleteConfirm, setIsShowDeleteConfirm] = useState(false);
+  const [isPopup, setIsPopup] = useState(false);
   const isContextRef = useRef(null);
 
   const onDataChange = (items) => {
@@ -24,9 +25,9 @@ const History = () => {
       tempClothes.push({
         key,
         type: data.type,
-        size: data.size,
-        color: data.color,
         length: data.length,
+        style: data.style,
+        material: data.material,
       });
     });
     setIsClothes(tempClothes);
@@ -49,20 +50,23 @@ const History = () => {
   };
 
   const handleDelete = () => {
-    setIsShowDeleteConfirm(true);
+    setIsPopup(true)
     hideContext();
   };
 
   const confirmDelete = (index) => {
-    const itemId = isClothes[index].key;
-    DataService.delete(itemId)
-      .then(() => {
-        setIsShowDeleteConfirm(false);
-        setIsClothes(prevItems => prevItems.filter((item, i) => i !== index));
-      })
-      .catch(error => {
-        console.error("Error deleting item:", error);
-      });
+    const itemId = isClothes[isCurrentIndex]?.key;
+    if (itemId) {
+      DataService.delete(itemId)
+        .then(() => {
+          setIsPopup(false);
+          setIsClothes(prevItems => prevItems.filter((item, i) => i !== isCurrentIndex));
+          setIsCurrentIndex(-1);
+        })
+        .catch(error => {
+          console.error("Error deleting item:", error);
+        });
+    }
   };
 
   const cancelDelete = () => {
@@ -103,10 +107,10 @@ const History = () => {
               onContextMenu={(e) => handleContextMenu(e, index)}
               className={"className='history-item' " + (index === isCurrentIndex ? "active" : "")}
             >
-              type: {item.type} <br />
-              size: {item.size} <br />
-              color: {item.color} <br />
+              {item.type} <br />
               length: {item.length} <br />
+              style: {item.style} <br />
+              material: {item.material} <br />
             </div>
           </div>
         ))}
@@ -127,7 +131,9 @@ const History = () => {
       {isShowUpdate && isClothes[isCurrentIndex] && (
         <Edit item={isClothes[isCurrentIndex]} onClose={() => setIsShowUpdate(false)} />
       )}
-      <Footer />
+      {isPopup && (
+        <Popup click={() => setIsPopup(false)} isPopup={isPopup} setIsPopup={setIsPopup} confirmDelete={confirmDelete} />
+      )}
     </div>
   );
 };

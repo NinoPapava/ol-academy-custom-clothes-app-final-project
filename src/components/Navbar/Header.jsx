@@ -1,13 +1,13 @@
 import React from 'react'
+import '../../assets/styles/Navbar_CSS/Header.css'
 import { Link } from 'react-router-dom/cjs/react-router-dom.min'
-import '../../../assets/styles/Navbar_CSS/Header.css'
 
-const Header = () => {
+const Header = ({ cansel, removeLocal }) => {
   return (
     <header className='header'>
       <div>
         <h1>
-          <Link to='/' className='logo' >
+          <Link to='/'  >
             Clothes Store
           </Link>
         </h1>
@@ -15,12 +15,12 @@ const Header = () => {
       <div className='header-links'>
         <ul>
           <li>
-            <Link to='/'>Home</Link>
+            <Link to='/' onClick={removeLocal} >Home</Link>
           </li>
         </ul>
         <ul>
           <li>
-            <Link to='/create'>Create</Link>
+            <Link to='/create' onClick={cansel}>Create</Link>
           </li>
         </ul>
         <ul>
