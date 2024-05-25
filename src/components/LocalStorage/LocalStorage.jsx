@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-const UseLocalStorage = (key, value, minutes) => {
+const LocalStorage = (key, value, minutes) => {
   const [state, setState] = useState(() => {
     const item = localStorage.getItem(key);
     if (item) {
@@ -32,4 +32,4 @@ const UseLocalStorage = (key, value, minutes) => {
 
 };
 
-export { UseLocalStorage }
+export { LocalStorage }
