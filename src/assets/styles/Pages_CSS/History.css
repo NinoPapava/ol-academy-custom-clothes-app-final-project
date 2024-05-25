@@ -47,6 +47,7 @@
 
 .history-item:hover {
   transform: translateY(-5px);
+  background-color: #e0e0e0; 
 }
 
 .item-details {

@@ -1,5 +1,4 @@
 import React from 'react'
-import '../../../assets/styles/Pages_CSS/HistoryComp/Delete.css'
 
 const Delete = ({ onConfirm, onCancel }) => {
   return (

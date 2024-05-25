@@ -20,7 +20,7 @@
 .home-page button {
   padding: 10px 20px;
   font-size: 16px;
-  background-color: #91b49a;
+  background-color: #777a78;
   color: #fff;
   border: none;
   border-radius: 5px;
@@ -29,5 +29,5 @@
 }
 
 .home-page button:hover {
-  background-color: #6e9474;
+  background-color: #696e6a;
 }

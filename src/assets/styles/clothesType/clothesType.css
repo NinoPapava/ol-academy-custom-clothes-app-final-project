@@ -1,0 +1,65 @@
+.container-body {
+  width: 700px;
+  margin: 20px auto;
+  padding: 20px;
+}
+
+.container-body h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+}
+
+select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.success-container {
+  text-align: center;
+  margin-top: 50px; 
+}
+
+.success-container h4 {
+  margin-bottom: 20px; 
+}
+
+.popup-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(226, 223, 223) !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup-context {
+  background-color: white;
+  width: 400px;
+  height: 300px;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); 
+}
+
+.popup-context p {
+  margin-bottom: 15px; 
+}
+
+.popup-context button {
+  margin-right: 10px; 
+}

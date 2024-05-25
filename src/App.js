@@ -1,8 +1,8 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
-import { Home } from "./components/Home/HomeComponent/Home"
-import { Create } from "./components/Create/CreateComponent/Create";
-import { History } from "./components/History/HistoryComponent/History";
+import { Home } from "./components/Home/Home"
+import { Create } from "./components/Create/Create";
+import { History } from "./components/History/History";
 import { NotFound } from "./Details/NotFound/NotFound";
 
 function App() {
