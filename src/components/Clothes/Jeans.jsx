@@ -2,12 +2,13 @@ import React, { useState, useEffect } from 'react'
 import { DataService } from '../../services/Data/DataService';
 import '../../assets/styles/clothesType/clothesType.css'
 import { Link } from 'react-router-dom/cjs/react-router-dom.min';
+import { UseLocalStorage } from '../../services/UseLocalStorage/UseLocalStorage';
 
 const Jeans = ({ type, cancel, progress }) => {
-  const [isSubmit, setIsSubmit] = useState(localStorage.getItem('isSubmit') === "true");
-  const [fit, setFit] = useState(localStorage.getItem('fit') || '');
-  const [style, setStyle] = useState(localStorage.getItem('style') || '');
-  const [fabric, setFabric] = useState(localStorage.getItem('fabric') || '');
+  const [isSubmit, setIsSubmit] = useState(false);
+  const [fit, setFit] = UseLocalStorage('fit', '', 10);
+  const [style, setStyle] = UseLocalStorage('style', '', 10);
+  const [fabric, setFabric] = UseLocalStorage('fabric', '', 10);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -39,22 +40,15 @@ const Jeans = ({ type, cancel, progress }) => {
   }
 
   const handleBack = () => {
-    localStorage.removeItem('isSubmit');
+    clearLocalStorage();
     setIsSubmit(false);
   }
 
   useEffect(() => {
     if (isSubmit) {
       progress(100);
-      localStorage.setItem('isSubmit', true);
     }
-    else {
-      localStorage.setItem('isSubmit', false);
-      localStorage.setItem('fit', fit);
-      localStorage.setItem('style', style);
-      localStorage.setItem('fabric', fabric);
-    }
-  }, [isSubmit, progress, fit, style, fabric]);
+  }, [isSubmit, progress]);
 
   return (
     <div >
