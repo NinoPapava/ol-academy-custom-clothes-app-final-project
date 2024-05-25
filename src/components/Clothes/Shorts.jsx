@@ -1,14 +1,14 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { DataService } from '../../services/Data/DataService';
 import '../../assets/styles/clothesType/clothesType.css'
 import { Link } from 'react-router-dom/cjs/react-router-dom.min';
-import { UseLocalStorage } from '../../services/UseLocalStorage/UseLocalStorage';
+import { LocalStorage } from '../LocalStorage/LocalStorage';
 
 const Shorts = ({ type, cancel, progress }) => {
-  const [isSubmit, setIsSubmit] = useState(false);
-  const [length, setLength] = UseLocalStorage('length', '', 10);
-  const [style, setStyle] = UseLocalStorage('style', '', 10);
-  const [fabric, setFabric] = UseLocalStorage('fabric', '', 10);
+  const [isSubmit, setIsSubmit] = LocalStorage('isSubmit', false, 10);
+  const [length, setLength] = LocalStorage('length', '', 10);
+  const [style, setStyle] = LocalStorage('style', '', 10);
+  const [fabric, setFabric] = LocalStorage('fabric', '', 10);
 
   const handleSubmit = (e) => {
     e.preventDefault();

@@ -3,7 +3,7 @@ import { Switch, Route } from "react-router-dom";
 import { Home } from "./components/Home/Home"
 import { Create } from "./components/Create/Create";
 import { History } from "./components/History/History";
-import { NotFound } from "./Details/NotFound/NotFound";
+import { NotFound } from "./details/NotFound/NotFound";
 
 function App() {
   return (
