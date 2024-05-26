@@ -11,11 +11,12 @@ import { Skirt } from '../Clothes/Skirt'
 import { Sweater } from '../Clothes/Sweater'
 import { Tshirt } from '../Clothes/Tshirt'
 import '../../assets/styles/Pages_CSS/Create.css'
+import { LocalStorage } from '../LocalStorage/LocalStorage'
 
 const Create = () => {
   const [isOpenType] = useState(false)
   const [progress, setProgress] = useState(0);
-  const [isSelectedType, setIsSelectedType] = useState(false)
+  const [isSelectedType, setIsSelectedType] = LocalStorage('isSelectedType', false, 10)
 
   const handleSelectType = (type) => {
     setIsSelectedType(type)
