@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Header } from '../Navbar/Header'
 import { Blouse } from '../Clothes/Blouse'
 import { Dress } from '../Clothes/Dress'
@@ -13,23 +13,9 @@ import { Tshirt } from '../Clothes/Tshirt'
 import '../../assets/styles/Pages_CSS/Create.css'
 
 const Create = () => {
-  const [isOpenType, setIsOpenType] = useState(false)
+  const [isOpenType] = useState(false)
   const [progress, setProgress] = useState(0);
   const [isSelectedType, setIsSelectedType] = useState(false)
-  const isTypeRef = useRef(null)
-
-  const handleClickOutside = (event) => {
-    if (!isTypeRef.current?.contains(event.target)) {
-      setIsOpenType(true)
-      setIsSelectedType(true)
-    }
-    if (event.target.classList.contains('background') ||
-      event.target.classList.contains('content')) {
-      return
-    }
-    setIsOpenType(true)
-    setIsSelectedType(true)
-  };
 
   const handleSelectType = (type) => {
     setIsSelectedType(type)
@@ -58,17 +44,6 @@ const Create = () => {
   }, []);
 
   useEffect(() => {
-    if (isOpenType) {
-      document.addEventListener('mousedown', handleClickOutside)
-    } else {
-      document.removeEventListener('mousedown', handleClickOutside)
-    }
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside)
-    };
-  }, [isOpenType]);
-
-  useEffect(() => {
     if (!isOpenType) {
       setProgress(35)
     }
@@ -79,7 +54,7 @@ const Create = () => {
 
   return (
     <div>
-      <Header cansel={handleCancelButton} removeLocal={localStorageRem}/>
+      <Header cansel={handleCancelButton} removeLocal={localStorageRem} />
       <div className="progress-bar">
         <div className="progress" style={{ width: `${progress}%` }}></div>
       </div>
